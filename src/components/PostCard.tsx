@@ -10,6 +10,7 @@ import { SignInButton, useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Card, CardContent } from "./ui/card";
+import Image from "next/image";
 import Link from "next/link";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { formatDistanceToNow } from "date-fns";
@@ -130,11 +131,13 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
 
           {/* POST IMAGE */}
           {post.image && (
-            <div className="rounded-lg overflow-hidden">
-              <img
+            <div className="relative aspect-video rounded-lg overflow-hidden">
+              <Image
                 src={post.image}
                 alt="Post content"
-                className="w-full h-auto object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}

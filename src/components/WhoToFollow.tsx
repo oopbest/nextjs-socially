@@ -1,5 +1,3 @@
-"use server";
-
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Link from "next/link";
 import { getRandomUsers } from "@/actions/user.action";
